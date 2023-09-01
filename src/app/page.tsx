@@ -11,7 +11,7 @@ export default function Home() {
       LeftComponent={<Sidebar />}
       MainComponent={
         <MainLayout
-          TopComponent={<Header />}
+          TopComponent={<Header label="Home" />}
           MainComponent="Main"
           BottomComponent="Footer"
         />

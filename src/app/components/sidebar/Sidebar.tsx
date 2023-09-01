@@ -3,7 +3,6 @@ import { BsHouseFill } from "react-icons/bs";
 import { RiNotification3Fill, RiLogoutBoxFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import SidebarItem from "./SidebarItem";
-import { name } from "../../../../.next/server/app/pages/profile/page";
 
 type Props = {};
 
@@ -42,6 +41,11 @@ const Sidebar = (props: Props) => {
             link={item.link}
           />
         ))}
+      </div>
+      <div className="flex justify-center mt-10">
+        <button className="bg-primary-10 px-4 py-2 w-2/3 rounded-lg font-semibold">
+          Chirp
+        </button>
       </div>
     </div>
   );

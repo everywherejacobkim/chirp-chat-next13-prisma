@@ -8,7 +8,7 @@ const Button = ({
   fullWidth,
   disabled,
 }: {
-  label: string;
+  label: any;
   onClick?: () => void;
   textColor?: string;
   bgColor?: string;

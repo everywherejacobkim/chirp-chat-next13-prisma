@@ -6,10 +6,10 @@ interface SignUpModalStore {
   onClose: () => void;
 }
 
-const useSignUpModal = create<SignUpModalStore>((set) => ({
+const useRegisterModal = create<SignUpModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }));
 
-export default useSignUpModal;
+export default useRegisterModal;

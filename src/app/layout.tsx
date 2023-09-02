@@ -2,6 +2,7 @@ import "./globals.css";
 import NextAuthSessionProvider from "./libs/providers/sessionProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import LoginModal from "./components/modal/LoginModal";
 import RegisterModal from "./components/modal/RegisterModal";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextAuthSessionProvider>
+          <Toaster />
           <RegisterModal />
           <LoginModal />
           {children}

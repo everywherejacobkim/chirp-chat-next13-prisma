@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { BsHouseFill } from "react-icons/bs";
 import { RiNotification3Fill, RiLogoutBoxFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import SidebarItem from "./SidebarItem";
+import useLoginModal from "@/libs/hooks/useLoginModal";
+import useCurrentUser from "@/libs/hooks/useCurrentUser";
 
-type Props = {};
+const Sidebar = () => {
+  const { data: currentUser } = useCurrentUser();
+  const loginModal = useLoginModal();
 
-const Sidebar = (props: Props) => {
+  const openLoginModal = useCallback(() => {
+    loginModal.onOpen();
+  }, [loginModal]);
+
   const items = [
     {
       name: "Home",
@@ -17,16 +24,13 @@ const Sidebar = (props: Props) => {
       name: "Notification",
       icon: RiNotification3Fill,
       link: "/notification",
+      auth: true,
     },
     {
       name: "Profile",
       icon: FaUser,
       link: "/profile",
-    },
-    {
-      name: "Logout",
-      icon: RiLogoutBoxFill,
-      link: "/login",
+      auth: true,
     },
   ];
 
@@ -39,11 +43,22 @@ const Sidebar = (props: Props) => {
             name={item.name}
             icon={item.icon}
             link={item.link}
+            auth={item.auth}
           />
         ))}
+        {currentUser && (
+          <SidebarItem
+            onClick={() => {}}
+            name="Logout"
+            icon={RiLogoutBoxFill}
+          />
+        )}
       </div>
       <div className="flex justify-center mt-10">
-        <button className="bg-primary-10 px-4 py-2 w-2/3 rounded-lg font-semibold">
+        <button
+          onClick={openLoginModal}
+          className="bg-primary-10 px-4 py-2 w-2/3 rounded-lg font-semibold"
+        >
           Chirp
         </button>
       </div>

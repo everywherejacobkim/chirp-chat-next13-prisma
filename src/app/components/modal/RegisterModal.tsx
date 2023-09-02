@@ -8,7 +8,7 @@ import useRegisterModal from "@/libs/hooks/useRegisterModal";
 import Input from "./Input";
 import Modal from "./Modal";
 
-const SignUpModal = () => {
+const RegisterModal = () => {
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
 
@@ -23,7 +23,6 @@ const SignUpModal = () => {
     if (isLoading) {
       return;
     }
-
     registerModal.onClose();
     loginModal.onOpen();
   }, [loginModal, registerModal, isLoading]);
@@ -41,7 +40,7 @@ const SignUpModal = () => {
 
       setIsLoading(false);
 
-      toast.success("Account created.");
+      toast.success("Account created successfully.");
 
       signIn("credentials", {
         email,
@@ -50,7 +49,7 @@ const SignUpModal = () => {
 
       registerModal.onClose();
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Something went wrong.");
     } finally {
       setIsLoading(false);
     }
@@ -119,4 +118,4 @@ const SignUpModal = () => {
   );
 };
 
-export default SignUpModal;
+export default RegisterModal;

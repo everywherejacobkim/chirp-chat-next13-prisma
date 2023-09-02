@@ -7,20 +7,23 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
+    return res.status(405).end();
   }
 
   try {
-    const { name, username, email, password } = req.body;
+    const { email, username, name, password } = req.body;
+
     const hashedPassword = await bcrypt.hash(password, 12);
+
     const user = await prisma.user.create({
       data: {
-        name,
-        username,
         email,
+        username,
+        name,
         hashedPassword,
       },
     });
+
     return res.status(200).json(user);
   } catch (error) {
     console.log(error);

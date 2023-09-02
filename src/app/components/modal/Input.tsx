@@ -30,13 +30,13 @@ const Input = ({
             w-full
             p-4 
             text-lg 
-            bg-black 
+            bg-gray-50
             border-2
             border-neutral-800 
             rounded-md
             outline-none
-            text-white
-            focus:border-sky-500
+            text-black
+            focus:border-lime-800
             focus:border-2
             transition
             disabled:bg-neutral-900

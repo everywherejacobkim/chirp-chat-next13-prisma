@@ -72,7 +72,7 @@ const Modal = ({
             flex 
             flex-col 
             w-full 
-            bg-black 
+            bg-primary-60 
             outline-none 
             focus:outline-none
             "

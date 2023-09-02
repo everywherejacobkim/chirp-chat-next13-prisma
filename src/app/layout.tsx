@@ -1,7 +1,9 @@
 import "./globals.css";
+import NextAuthSessionProvider from "./libs/providers/sessionProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Modal from "./components/modal/Modal";
+import LoginModal from "./components/modal/LoginModal";
+import RegisterModal from "./components/modal/RegisterModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NextAuthSessionProvider>
+          <RegisterModal />
+          <LoginModal />
+          {children}
+        </NextAuthSessionProvider>
+      </body>
     </html>
   );
 }

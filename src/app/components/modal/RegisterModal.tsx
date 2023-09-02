@@ -1,9 +1,10 @@
+"use client";
 import { useState, useCallback } from "react";
 import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import axios from "axios";
 import useLoginModal from "@/libs/hooks/useLoginModal";
-import useRegisterModal from "@/libs/hooks/useSignUpModal";
+import useRegisterModal from "@/libs/hooks/useRegisterModal";
 import Input from "./Input";
 import Modal from "./Modal";
 
@@ -53,7 +54,7 @@ const SignUpModal = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [email, password, registerModal, username, name]);
+  }, [registerModal, email, password, username, name]);
 
   const body = (
     <div className="flex flex-col gap-4">

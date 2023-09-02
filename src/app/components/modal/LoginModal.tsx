@@ -1,8 +1,9 @@
+"use client";
 import { useState, useCallback } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import useLoginModal from "@/libs/hooks/useLoginModal";
-import useSignUpModal from "@/libs/hooks/useSignUpModal";
+import useSignUpModal from "@/libs/hooks/useRegisterModal";
 import Input from "./Input";
 import Modal from "./Modal";
 

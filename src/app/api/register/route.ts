@@ -1,17 +1,12 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import prisma from "@/libs/db/prismadb";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method !== "POST") {
-    return res.status(405).end();
-  }
-
+export async function POST(req: NextRequest, res: NextResponse) {
   try {
-    const { email, username, name, password } = req.body;
+    const body = await req.json();
+    const { email, username, name, password } = body;
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -24,9 +19,9 @@ export default async function handler(
       },
     });
 
-    return res.status(200).json(user);
+    return NextResponse.json(user);
   } catch (error) {
     console.log(error);
-    return res.status(400).end();
+    return NextResponse.error;
   }
 }

@@ -1,13 +1,23 @@
-import React, { useCallback } from "react";
+"use client";
+import React, { useCallback, useEffect, useState } from "react";
 import { BsHouseFill } from "react-icons/bs";
 import { RiNotification3Fill, RiLogoutBoxFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import SidebarItem from "./SidebarItem";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import useCurrentUser from "@/libs/hooks/useCurrentUser";
+import { signOut } from "next-auth/react";
 
 const Sidebar = () => {
-  const { data: currentUser } = useCurrentUser();
+  const currentUser = useCurrentUser();
+  const [currentUserStatus, setCurrentUserStatus] = useState(null);
+
+  useEffect(() => {
+    setCurrentUserStatus(currentUser);
+  }, [currentUser]);
+
+  console.log("currentUser", currentUser);
+
   const loginModal = useLoginModal();
 
   const openLoginModal = useCallback(() => {
@@ -46,9 +56,9 @@ const Sidebar = () => {
             auth={item.auth}
           />
         ))}
-        {currentUser && (
+        {currentUserStatus && currentUserStatus !== undefined && (
           <SidebarItem
-            onClick={() => {}}
+            onClick={() => signOut()}
             name="Logout"
             icon={RiLogoutBoxFill}
           />

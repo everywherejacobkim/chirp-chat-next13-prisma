@@ -1,4 +1,3 @@
-"use client";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import Sidebar from "@/components/sidebar/Sidebar";
 import Followbar from "@/components/sidebar/Followbar";

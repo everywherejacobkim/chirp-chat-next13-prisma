@@ -1,18 +1,15 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import serverAuth from "@/libs/serverAuth";
+import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]/route";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method !== "GET") {
-    return res.status(405).json({ message: "Method not allowed" });
+export async function GET(req: Request) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    console.log("No session: Need login");
   }
-  try {
-    const { currentUser } = await serverAuth(req);
-    return res.status(200).json(currentUser);
-  } catch (error) {
-    console.log(error);
-    return res.status(400).end();
-  }
+  session && console.log("Get session", session);
+  return NextResponse.json({
+    authenticated: !!session,
+    data: session ? session.user : null,
+  });
 }

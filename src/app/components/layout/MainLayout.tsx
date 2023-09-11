@@ -10,7 +10,7 @@ const MainLayout = async ({
   BottomComponent: ReactNode;
 }) => {
   return (
-    <div className="flex flex-col gap-2 bg-primary-10">
+    <div className="flex flex-col justify-between gap-2">
       <div>{TopComponent}</div>
       <div>{MainComponent}</div>
       <div>{BottomComponent}</div>

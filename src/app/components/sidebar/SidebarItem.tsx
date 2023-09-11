@@ -34,8 +34,8 @@ const SidebarItem = ({
   }, [onClick, auth, currentUser, link, loginModal, router]);
   return (
     <div className="flex items-center" onClick={handleClick}>
-      <div className="relative flex gap-2 justify-center items-center p-4 cursor-pointer">
-        <Icon className="text-2xl text-white" />
+      <div className="relative flex gap-2 py-4 cursor-pointer">
+        <Icon className="text-2xl text-black" />
         <h1 className="pt-1">{name}</h1>
       </div>
     </div>

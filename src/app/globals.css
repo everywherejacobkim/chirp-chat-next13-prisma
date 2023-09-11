@@ -5,7 +5,7 @@
 
 html,
 body {
-  background-color: #393f3c;
+  background-color: #fcfcfc;
 }
 
 h1,
@@ -15,6 +15,5 @@ h4,
 h5,
 h6,
 p {
-  color: #ebf2fa;
   font-family: "Nunito", sans-serif;
 }

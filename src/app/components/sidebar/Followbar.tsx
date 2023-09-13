@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import useUsers from "@/libs/hooks/useUsers";
 import Avatar from "@/components/avatar/Avatar";

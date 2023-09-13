@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/navigation";
 import Image from "next/image";
 import useUser from "@/libs/hooks/useUser";
 
@@ -12,7 +12,7 @@ const Avatar = ({
   isLarge?: boolean;
   hasBorder?: boolean;
 }) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const { data: fetchedUser } = useUser(userId);
 
@@ -22,9 +22,9 @@ const Avatar = ({
 
       const url = `/users/${userId}`;
 
-      router.push(url);
+      // router.push(url);
     },
-    [router, userId]
+    [userId]
   );
 
   return (

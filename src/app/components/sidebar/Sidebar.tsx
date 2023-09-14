@@ -10,7 +10,6 @@ import { signOut } from "next-auth/react";
 
 const Sidebar = () => {
   const { data: currentUser } = useCurrentUser();
-  console.log("222This is current user:", currentUser);
 
   const loginModal = useLoginModal();
 

@@ -1,4 +1,3 @@
-// import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import prisma from "@/libs/db/prismadb";

@@ -1,6 +1,9 @@
 import { useCallback } from "react";
 import Image from "next/image";
 import useUser from "@/libs/hooks/useUser";
+import { useRouter } from "next/navigation";
+import { PiUserCircleDuotone } from "react-icons/pi";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Avatar = ({
   userId,
@@ -11,22 +14,20 @@ const Avatar = ({
   isLarge?: boolean;
   hasBorder?: boolean;
 }) => {
-  // const router = useRouter();
+  const router = useRouter();
 
   const { data: fetchedUser } = useUser(userId);
 
   const onClick = useCallback(
     (event: any) => {
       event.stopPropagation();
-
       const url = `/users/${userId}`;
-
-      // router.push(url);
+      router.push(url);
     },
-    [userId]
+    [router, userId]
   );
 
-  return (
+  return fetchedUser ? (
     <div
       className={`
         ${hasBorder ? "border-4 border-black" : ""}
@@ -47,8 +48,12 @@ const Avatar = ({
         }}
         alt="Avatar"
         onClick={onClick}
-        src={fetchedUser?.profileImage || "/images/placeholder.png"}
+        src={fetchedUser.profileImage}
       />
+    </div>
+  ) : (
+    <div className="w-10 h-10">
+      <PiUserCircleDuotone size={40} />
     </div>
   );
 };

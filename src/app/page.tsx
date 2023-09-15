@@ -4,7 +4,7 @@ import Followbar from "@/components/sidebar/Followbar";
 import MainLayout from "@/components/layout/MainLayout";
 import Header from "@/components/header/Header";
 
-export default function Home() {
+export default async function Home() {
   return (
     <DashboardLayout
       LeftComponent={<Sidebar />}

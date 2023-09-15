@@ -3,7 +3,6 @@ import Image from "next/image";
 import useUser from "@/libs/hooks/useUser";
 import { useRouter } from "next/navigation";
 import { PiUserCircleDuotone } from "react-icons/pi";
-import { FaRegUserCircle } from "react-icons/fa";
 
 const Avatar = ({
   userId,

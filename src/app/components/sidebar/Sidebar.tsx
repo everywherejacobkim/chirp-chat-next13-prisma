@@ -1,16 +1,16 @@
 "use client";
 import React, { useCallback } from "react";
+import useCurrentUser from "@/libs/hooks/useCurrentUser";
+import useLoginModal from "@/libs/hooks/useLoginModal";
 import { BiHomeSmile } from "react-icons/bi";
 import { RiNotification3Line, RiLogoutBoxFill } from "react-icons/ri";
 import { FiUser } from "react-icons/fi";
 import SidebarItem from "./SidebarItem";
-import useLoginModal from "@/libs/hooks/useLoginModal";
-import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 const Sidebar = () => {
   const { data: currentUser } = useCurrentUser();
-
   const loginModal = useLoginModal();
 
   const openLoginModal = useCallback(() => {

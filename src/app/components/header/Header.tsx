@@ -20,7 +20,7 @@ const Header = ({ label }: { label: string }) => {
       <div className="flex flex-col gap-2">
         <h1 className="text-primary-text text-xl font-semibold">{label}</h1>
         <h3 className="text-primary-text">
-          Welcome back {currentUser.data.name}{" "}
+          Welcome back {currentUser?.data?.name}{" "}
         </h3>
       </div>
     </div>

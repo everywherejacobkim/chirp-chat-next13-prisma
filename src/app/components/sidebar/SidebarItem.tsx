@@ -24,14 +24,14 @@ const SidebarItem = ({
 
   const handleClick = useCallback(() => {
     if (onClick) {
-      onClick();
+      return onClick();
     }
     if (auth && !currentUser) {
       loginModal.onOpen();
     } else if (link) {
       router.push(link);
     }
-  }, [onClick, auth, currentUser, link, loginModal, router]);
+  }, [onClick, link, router]);
   return (
     <div className="flex items-center" onClick={handleClick}>
       <div className="relative flex gap-2 py-4 cursor-pointer">

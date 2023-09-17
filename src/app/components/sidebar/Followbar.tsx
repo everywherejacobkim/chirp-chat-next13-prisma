@@ -8,6 +8,10 @@ const Followbar = () => {
   const { data: users = [] } = useUsers();
   const { data: currentUser } = useCurrentUser();
 
+  const filteredUsers = users.filter(
+    (user: Record<string, any>) => user.name !== currentUser?.name
+  );
+
   return (
     <div className="w-full mt-10">
       <div className="bg-primary-60 p-4 mx-4 rounded-lg">
@@ -15,7 +19,7 @@ const Followbar = () => {
           <>
             <h1 className="text-white">People you may know</h1>
             <div className="flex flex-col gap-4 mt-2">
-              {users.map((user: Record<string, any>) => (
+              {filteredUsers.map((user: Record<string, any>) => (
                 <div key={user.id} className="flex flex-row gap-4">
                   <Avatar userId={user.id} />
                   <div className="flex flex-col">

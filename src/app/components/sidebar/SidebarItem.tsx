@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { IconType } from "react-icons";
-import useCurrentUser from "@/libs/hooks/useCurrentUser";
+import { useSession } from "next-auth/react";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 
 const SidebarItem = ({
@@ -17,7 +17,7 @@ const SidebarItem = ({
   onClick?: () => void;
   auth?: boolean;
 }) => {
-  const { data: currentUser } = useCurrentUser();
+  const { data: session } = useSession();
   const router = useRouter();
 
   const loginModal = useLoginModal();
@@ -26,12 +26,12 @@ const SidebarItem = ({
     if (onClick) {
       return onClick();
     }
-    if (auth && !currentUser) {
+    if (!session) {
       loginModal.onOpen();
     } else if (link) {
       router.push(link);
     }
-  }, [onClick, link, router]);
+  }, [onClick, link, router, session]);
   return (
     <div className="flex items-center" onClick={handleClick}>
       <div className="relative flex gap-2 py-4 cursor-pointer">

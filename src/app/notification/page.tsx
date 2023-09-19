@@ -5,11 +5,11 @@ type Props = {};
 
 const page = (props: Props) => {
   return (
-    <PageLayout 
-    LeftComponent={<Sidebar />}
-    MainComponent="hello this is main"
+    <PageLayout
+      LeftComponent={<Sidebar />}
+      MainComponent="hello this is main"
     />
-  )
+  );
 };
 
 export default page;

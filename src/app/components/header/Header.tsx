@@ -4,7 +4,6 @@ import useCurrentUser from "@/libs/hooks/useCurrentUser";
 
 const Header = ({ label }: { label: string }) => {
   const { data: currentUser, isLoading } = useCurrentUser();
-  console.log("This is current user in header:", currentUser);
 
   if (isLoading) {
     return (

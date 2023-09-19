@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/libs/db/prismadb";
 
-export async function GET(req: Request, res: NextResponse) {
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { userId } = req.query;
 
@@ -23,9 +23,9 @@ export async function GET(req: Request, res: NextResponse) {
       },
     });
 
-    return NextResponse.json({ ...existingUser, followersCount });
+    return res.json({ ...existingUser, followersCount });
   } catch (error) {
     console.log(error);
-    return NextResponse.json("Can not find user");
+    return res.json("Can not find user");
   }
 }

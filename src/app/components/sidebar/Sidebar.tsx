@@ -1,16 +1,14 @@
 "use client";
 import React, { useCallback } from "react";
-import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import { BiHomeSmile } from "react-icons/bi";
 import { RiNotification3Line, RiLogoutBoxFill } from "react-icons/ri";
 import { FiUser } from "react-icons/fi";
 import SidebarItem from "./SidebarItem";
-import { signOut } from "next-auth/react";
-import { signIn } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 const Sidebar = () => {
-  const { data: currentUser } = useCurrentUser();
+  const { data: session, status } = useSession();
   const loginModal = useLoginModal();
 
   const openLoginModal = useCallback(() => {
@@ -37,6 +35,8 @@ const Sidebar = () => {
     },
   ];
 
+  console.log(status);
+
   return (
     <div className="w-full pt-40 bg-primary-10">
       <div className="pl-10">
@@ -49,7 +49,7 @@ const Sidebar = () => {
             auth={item.auth}
           />
         ))}
-        {currentUser && (
+        {session && status == "authenticated" && (
           <SidebarItem
             onClick={() => signOut()}
             name="Logout"

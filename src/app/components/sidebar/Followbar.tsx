@@ -2,7 +2,6 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import useUsers from "@/libs/hooks/useUsers";
-import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import Avatar from "@/components/avatar/Avatar";
 
 const Followbar = () => {
@@ -13,6 +12,14 @@ const Followbar = () => {
     (user: Record<string, any>) => user.name !== session?.user?.name
   );
 
+  const shuffledUsers = [...filteredUsers];
+  for (let i = shuffledUsers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledUsers[i], shuffledUsers[j]] = [shuffledUsers[j], shuffledUsers[i]];
+  }
+
+  const randomUsers = shuffledUsers.slice(0, 4);
+
   return (
     <div className="w-full mt-10">
       <div className="bg-primary-60 p-4 mx-4 rounded-lg">
@@ -20,7 +27,7 @@ const Followbar = () => {
           <>
             <h1 className="text-white">People you may know</h1>
             <div className="flex flex-col gap-4 mt-2">
-              {filteredUsers.map((user: Record<string, any>) => (
+              {randomUsers.map((user: Record<string, any>) => (
                 <div key={user.id} className="flex flex-row gap-4">
                   <Avatar userId={user.id} />
                   <div className="flex flex-col">

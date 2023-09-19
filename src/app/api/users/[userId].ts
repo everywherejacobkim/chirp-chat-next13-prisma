@@ -23,9 +23,9 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
       },
     });
 
-    return res.json({ ...existingUser, followersCount });
+    return res.status(200).json({ ...existingUser, followersCount });
   } catch (error) {
     console.log(error);
-    return res.json("Can not find user");
+    return res.status(400).end();
   }
 }

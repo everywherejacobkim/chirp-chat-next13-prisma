@@ -26,7 +26,7 @@ const SidebarItem = ({
     if (onClick) {
       return onClick();
     }
-    if (!session) {
+    if (!session && auth) {
       loginModal.onOpen();
     } else if (link) {
       router.push(link);

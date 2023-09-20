@@ -1,11 +1,13 @@
 "use client";
 import React, { useCallback } from "react";
+import Image from "next/image";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import { BiHomeSmile } from "react-icons/bi";
 import { RiNotification3Line, RiLogoutBoxFill } from "react-icons/ri";
 import { FiUser } from "react-icons/fi";
 import SidebarItem from "./SidebarItem";
 import { useSession, signOut } from "next-auth/react";
+import logo from "public/images/icons/chirp_logo2.png";
 
 const Sidebar = () => {
   const { data: session, status } = useSession();
@@ -38,7 +40,11 @@ const Sidebar = () => {
   console.log(status);
 
   return (
-    <div className="w-full pt-40 bg-primary-10">
+    <div className="w-full bg-primary-10">
+      <div className="flex flex-col justify-center items-center">
+        <Image src={logo} width={100} height={100} alt="logo" />
+        <h1 className="font-semibold -mt-5 mb-5">CHIRPCHAT</h1>
+      </div>
       <div className="pl-10">
         {items.map((item, index) => (
           <SidebarItem

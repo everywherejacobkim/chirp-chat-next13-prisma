@@ -1,4 +1,4 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
+import DashboardLayout from "@/components/layout/PageLayout";
 import Sidebar from "@/components/sidebar/Sidebar";
 import Followbar from "@/components/sidebar/Followbar";
 import MainLayout from "@/components/layout/MainLayout";

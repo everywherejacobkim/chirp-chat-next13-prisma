@@ -26,9 +26,11 @@ const Avatar = ({
     [router, userId]
   );
 
-  return fetchedUser ? (
-    <div
-      className={`
+  return (
+    <div onClick={onClick} className="hover:cursor-pointer">
+      {fetchedUser ? (
+        <div
+          className={`
         ${hasBorder ? "border-4 border-black" : ""}
         ${isLarge ? "h-32" : "h-12"}
         ${isLarge ? "w-32" : "w-12"}
@@ -38,21 +40,22 @@ const Avatar = ({
         cursor-pointer
         relative
       `}
-    >
-      <Image
-        fill
-        style={{
-          objectFit: "cover",
-          borderRadius: "100%",
-        }}
-        alt="Avatar"
-        onClick={onClick}
-        src={fetchedUser.profileImage}
-      />
-    </div>
-  ) : (
-    <div className="w-10 h-10">
-      <PiUserCircleDuotone size={40} />
+        >
+          <Image
+            fill
+            style={{
+              objectFit: "cover",
+              borderRadius: "100%",
+            }}
+            alt="Avatar"
+            src={fetchedUser.profileImage}
+          />
+        </div>
+      ) : (
+        <div className="w-10 h-10">
+          <PiUserCircleDuotone size={40} />
+        </div>
+      )}
     </div>
   );
 };

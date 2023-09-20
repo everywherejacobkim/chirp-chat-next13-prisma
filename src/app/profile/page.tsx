@@ -1,15 +1,15 @@
 import PageLayout from "@/components/layout/PageLayout";
 import Sidebar from "@/components/sidebar/Sidebar";
+import Followbar from "@/components/sidebar/Followbar";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
-    <PageLayout 
-    LeftComponent={<Sidebar />}
-    MainComponent="hello this is main"
+    <PageLayout
+      LeftComponent={<Sidebar />}
+      MainComponent="hello this is Profile page"
+      RightComponent={<Followbar />}
     />
-  )
+  );
 };
 
 export default page;

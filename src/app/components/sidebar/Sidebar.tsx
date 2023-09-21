@@ -40,7 +40,7 @@ const Sidebar = () => {
   console.log(status);
 
   return (
-    <div className="w-full bg-primary-10">
+    <div className="w-full bg-white">
       <div className="flex flex-col justify-center items-center">
         <Image src={logo} width={100} height={100} alt="logo" />
         <h1 className="font-semibold -mt-5 mb-5">CHIRPCHAT</h1>
@@ -63,6 +63,7 @@ const Sidebar = () => {
           />
         )}
       </div>
+      {!session && (
       <div className="flex justify-center mt-10">
         <button
           onClick={openLoginModal}
@@ -71,6 +72,7 @@ const Sidebar = () => {
           Chirp
         </button>
       </div>
+)}
     </div>
   );
 };

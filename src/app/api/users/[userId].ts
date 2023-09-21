@@ -1,9 +1,11 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
+import { useParams } from "next/navigation";
 import prisma from "@/libs/db/prismadb";
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: Request) {
   try {
-    const { userId } = req.query;
+    const params = useParams();
+    const userId = params.userId;
 
     if (!userId || typeof userId !== "string") {
       throw new Error("Invalid ID");
@@ -23,9 +25,9 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
       },
     });
 
-    return res.status(200).json({ ...existingUser, followersCount });
+    return NextResponse.json({ ...existingUser, followersCount });
   } catch (error) {
     console.log(error);
-    return res.status(400).end();
+    return NextResponse.json("Can not find user");
   }
 }

@@ -1,17 +1,15 @@
 "use client";
-import { useParams } from "next/navigation";
 import useUser from "@/libs/hooks/useUser";
 import UserHero from "./UserHero";
 
-const UserProfile = () => {
-  const params = useParams();
-  const userId = params.userId;
+const UserProfile = ({params}: {params: {id: string}}) => {
+  const userId = params.id;
 
   const { data: fetchedUser, isLoading } = useUser(userId as string);
-
+  console.log(fetchedUser);
   return (
   <div>
-    <UserHero userId={userId} />
+    <UserHero />
 
   </div>
   )

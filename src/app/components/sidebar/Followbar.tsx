@@ -5,25 +5,25 @@ import useUsers from "@/libs/hooks/useUsers";
 import Avatar from "@/components/avatar/Avatar";
 
 const Followbar = () => {
-  const { data: users = [] } = useUsers();
-  const { data: session } = useSession();
+  // const { data: users = [] } = useUsers();
+  // const { data: session } = useSession();
 
-  const filteredUsers = users.filter(
-    (user: Record<string, any>) => user.name !== session?.user?.name
-  );
+  // const filteredUsers = users.filter(
+  //   (user: Record<string, any>) => user.name !== session?.user?.name
+  // );
 
-  const shuffledUsers = [...filteredUsers];
-  for (let i = shuffledUsers.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledUsers[i], shuffledUsers[j]] = [shuffledUsers[j], shuffledUsers[i]];
-  }
+  // const shuffledUsers = [...filteredUsers];
+  // for (let i = shuffledUsers.length - 1; i > 0; i--) {
+  //   const j = Math.floor(Math.random() * (i + 1));
+  //   [shuffledUsers[i], shuffledUsers[j]] = [shuffledUsers[j], shuffledUsers[i]];
+  // }
 
-  const randomUsers = shuffledUsers.slice(0, 4);
+  // const randomUsers = shuffledUsers.slice(0, 4);
 
   return (
     <div className="w-full mt-10">
       <div className="bg-primary-60 p-4 mx-4 rounded-lg">
-        {session ? (
+        {/* {session ? (
           <>
             <h1 className="text-white">People you may know</h1>
             <div className="flex flex-col gap-4 mt-2">
@@ -45,7 +45,7 @@ const Followbar = () => {
             <h1 className="text-white">Ready to Connect?</h1>
             <h1 className="text-white mt-2">Log In to Follow Users</h1>
           </>
-        )}
+        )} */}
       </div>
     </div>
   );

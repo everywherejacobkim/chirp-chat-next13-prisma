@@ -3,6 +3,8 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import Followbar from "@/components/sidebar/Followbar";
 import MainLayout from "@/components/layout/MainLayout";
 import Header from "@/components/header/Header";
+import { NewChirpForm } from "./components/form/NewChirpForm";
+import Footer from "./components/footer/Footer";
 
 export default async function Home() {
   return (
@@ -10,9 +12,9 @@ export default async function Home() {
       LeftComponent={<Sidebar />}
       MainComponent={
         <MainLayout
-          TopComponent={<Header label="Home" />}
-          MainComponent="Main"
-          BottomComponent="Footer"
+          TopComponent={<Header label="Home" isWelcomeShow={true} />}
+          MainComponent={<NewChirpForm />}
+          BottomComponent={<Footer />}
         />
       }
       RightComponent={<Followbar />}

@@ -52,8 +52,15 @@ const Avatar = ({
           />
         </div>
       ) : (
-        <div className="w-10 h-10">
-          <PiUserCircleDuotone size={40} />
+        <div 
+        className={`
+        ${isLarge ? "h-32" : "h-12"}
+        ${isLarge ? "w-32" : "w-12"}
+        w-10 h-10
+        `}>
+          <PiUserCircleDuotone size={`
+          ${isLarge ? 120 : 40}
+          `} />
         </div>
       )}
     </div>

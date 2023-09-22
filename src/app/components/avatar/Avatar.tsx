@@ -26,9 +26,11 @@ const Avatar = ({
     [router, userId]
   );
 
+  console.log("This is F user: ", fetchedUser)
+
   return (
     <div onClick={onClick} className="hover:cursor-pointer">
-      {fetchedUser ? (
+      {fetchedUser?.profileImage ? (
         <div
           className={`
         ${hasBorder ? "border-4 border-black" : ""}

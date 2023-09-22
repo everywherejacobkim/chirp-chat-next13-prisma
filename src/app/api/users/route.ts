@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/libs/db/prismadb";
 
-export async function GET(req: Request, res: NextResponse) {
+export async function GET(req: Request) {
   try {
     const users = await prisma.user.findMany({
       orderBy: {
@@ -12,6 +12,8 @@ export async function GET(req: Request, res: NextResponse) {
     return NextResponse.json(users);
   } catch (error) {
     console.log(error);
-    return NextResponse.json("Can not find users");
+    return new NextResponse(JSON.stringify(
+      { message: "Error getting users" })
+    )
   }
 }

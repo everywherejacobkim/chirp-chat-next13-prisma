@@ -3,7 +3,7 @@ import useUser from "@/libs/hooks/useUser";
 import UserHero from "./UserHero";
 import {ClipLoader} from "react-spinners";
 
-const UserProfile = ({params}: {params: string}) => {
+const UserProfile = ({ params }: { params: { userId: string } }) => {
   const userId = params.userId;
 
   const { data: fetchedUser, isLoading } = useUser(userId);
@@ -15,11 +15,8 @@ const UserProfile = ({params}: {params: string}) => {
   )
  }
   return (
-  <div>
+  <div className="rounded-lg shadow-lg overflow-hidden">
     <UserHero fetchedUser={fetchedUser}/>
-    <p>
-      {fetchedUser.name}
-    </p>
   </div>
   )
 };

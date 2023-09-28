@@ -22,7 +22,7 @@ const Followbar = () => {
 
   return (
     <div className="w-full mt-10">
-      <div className="bg-primary-60 p-4 mx-4 rounded-lg">
+      <div className="bg-primary-60 p-4 mx-4 rounded-xl shadow-lg">
         {session ? (
           <>
             <h1 className="text-white">People you may know</h1>
@@ -30,7 +30,7 @@ const Followbar = () => {
               {randomUsers.map((user: Record<string, any>) => (
                 <div key={user.id} className="flex flex-row gap-4">
                   <Avatar userId={user.id} />
-                  <div className="flex flex-col">
+                  <div className="flex flex-col pt-1">
                     <p className="text-white font-semibold text-sm">
                       {user.name}
                     </p>

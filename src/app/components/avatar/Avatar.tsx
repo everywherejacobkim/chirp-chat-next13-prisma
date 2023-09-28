@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import Image from "next/image";
 import useUser from "@/libs/hooks/useUser";
 import { useRouter } from "next/navigation";
-import { PiUserCircleDuotone } from "react-icons/pi";
+import userImagePlaceholder from "public/images/icons/placeholder-user-no.png";
 
 const Avatar = ({
   userId,
@@ -17,6 +17,8 @@ const Avatar = ({
 
   const { data: fetchedUser } = useUser(userId);
 
+
+  
   const onClick = useCallback(
     (event: any) => {
       event.stopPropagation();
@@ -25,8 +27,6 @@ const Avatar = ({
     },
     [router, userId]
   );
-
-  console.log("This is F user: ", fetchedUser)
 
   return (
     <div onClick={onClick} className="hover:cursor-pointer">
@@ -56,13 +56,13 @@ const Avatar = ({
       ) : (
         <div 
         className={`
-        ${isLarge ? "h-32" : "h-12"}
-        ${isLarge ? "w-32" : "w-12"}
+        ${isLarge ? "h-44" : "h-12"}
+        ${isLarge ? "w-44" : "w-12"}
         w-10 h-10
         `}>
-          <PiUserCircleDuotone size={`
-          ${isLarge ? 120 : 40}
-          `} />
+            <Image
+              src={userImagePlaceholder}
+              alt="user-placeholder"/>
         </div>
       )}
     </div>

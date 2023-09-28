@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import { PiKeyReturnFill } from "react-icons/pi";
 
@@ -35,7 +36,7 @@ const Header = ({
   }
 
   return (
-    <div className="border-b-[1px] bg-white border-neutral-800 p-5">
+    <div className=" bg-white pt-10">
       {isWelcomeShow ? (
         <div className="flex flex-col gap-2">
           <h1 className="text-primary-text text-xl font-semibold">{label}</h1>
@@ -48,10 +49,13 @@ const Header = ({
           )}
         </div>
       ) : (
-        <div className="flex gap-1 items-end">
-          <PiKeyReturnFill size={32} className="text-primary-60" />
-          <h3 className="text-primary-text text-lg font-semibold">Back</h3>
-        </div>
+ 
+          <Link href="/">
+           <div className="flex gap-1 items-end">
+            <PiKeyReturnFill size={32} className="text-primary-60" />
+            <h3 className="text-primary-text text-lg font-semibold">Back</h3>
+           </div>
+          </Link>
       )}
     </div>
   );

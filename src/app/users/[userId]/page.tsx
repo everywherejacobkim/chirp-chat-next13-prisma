@@ -6,7 +6,7 @@ import Header from "@/components/header/Header";
 import UserProfile from "@/components/user/UserProfile";
 
 const page = ({params}: {
-  params: {id: string}
+  params: {userId: string}
 }) => {
   return (
     <PageLayout

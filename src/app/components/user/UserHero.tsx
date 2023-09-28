@@ -9,7 +9,7 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
   const editModal = useEditModal();
 
   return (
-    <div className="h-72 relative">
+    <div className="h-72 relative mb-3">
       <div className="bg-gray-100 h-40">
         {fetchedUser?.coverImage && (
           <Image

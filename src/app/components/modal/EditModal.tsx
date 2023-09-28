@@ -7,6 +7,7 @@ import useUser from "@/libs/hooks/useUser";
 import useEditModal from "@/libs/hooks/useEditModal";
 import Modal from "./Modal";
 import Input from "./Input";
+import ImageUpload from "../imageUpload/ImageUpload";
 
 const EditModal = () => {
   const { data: currentUser } = useCurrentUser();
@@ -61,6 +62,18 @@ const EditModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
+      <ImageUpload
+        value={profileImage}
+        onChange={(image) => setProfileImage(image)}
+        label="Upload Your Profile Image"
+        disabled={isLoading}
+      />
+      <ImageUpload
+        value={coverImage}
+        onChange={(image) => setCoverImage(image)}
+        label="Add Your Own Cover Image"
+        disabled={isLoading}
+      />
       <Input
         label="Name"
         value={name}

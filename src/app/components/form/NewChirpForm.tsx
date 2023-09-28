@@ -6,7 +6,7 @@ import useCurrentUser from '@/libs/hooks/useCurrentUser';
 export function NewChirpForm() {
     const [inputValue, setInputValue] = useState("");
     const { data: currentUser } = useCurrentUser();
-    console.log("Test CurrentUser: ", currentUser)
+    
     return (
         <form className="flex flex-col gap-2 border-b px-4 py-2">
             <div className="flex gap-4">

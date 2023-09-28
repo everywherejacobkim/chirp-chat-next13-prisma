@@ -16,6 +16,7 @@ model User {
   image           String?
   profileImage    String?
   coverImage      String?
+  bio             String?
   hashedPassword  String?
   followingIds    String[] @db.ObjectId
   hasNotification Boolean? 

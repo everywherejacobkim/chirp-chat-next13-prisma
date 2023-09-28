@@ -48,12 +48,11 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
                 </div>
             </div>
             <div className="px-8 -mt-4">
-            <button className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105">
-            { fetchedUser?.id === session?.user?.id ?
-              <p>Edit</p>
-              : <p>Follow</p>
+  
+            { fetchedUser?.id === session?.user?.id ? (
+          <button className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105">Edit</button>
+              ): (<button className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105">Follow</button>)
             }
-              </button>
             </div>
             </div>
         </div>

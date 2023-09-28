@@ -1,24 +1,16 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 import serverAuth from "@/libs/serverAuth";
 import prisma from "@/libs/db/prismadb";
+import { useSession } from "next-auth/react";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'PATCH') {
-    return res.status(405).end();
-  }
-
+export async function PATCH(req: Request, res: NextResponse) {
   try {
     const { currentUser } = await serverAuth(req, res);
-
-    const { name, username, profileImage, coverImage, bio } = req.body;
-
-    if (!name || !username) {
-      throw new Error('Missing fields');
-    }
+    const { name, username, profileImage, coverImage, bio } = await req.json();
 
     const updatedUser = await prisma.user.update({
       where: {
-        id: currentUser.id,
+        id: currentUser?.id,
       },
       data: {
         name,
@@ -26,12 +18,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         profileImage,
         coverImage,
         bio,
-      }
+      },
     });
 
-    return res.status(200).json(updatedUser);
+    return NextResponse.json(
+      { message: "Success", updatedUser },
+      { status: 200 }
+    );
   } catch (error) {
-    console.log(error);
-    return res.status(400).end();
+    return NextResponse.json(
+      { message: "Error updating profile", error },
+      { status: 500 }
+    );
+  } finally {
+    await prisma.$disconnect();
   }
 }

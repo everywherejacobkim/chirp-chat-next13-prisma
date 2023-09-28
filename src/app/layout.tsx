@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import LoginModal from "./components/modal/LoginModal";
+import EditModal from "./components/modal/EditModal";
 import RegisterModal from "./components/modal/RegisterModal";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Toaster />
           <RegisterModal />
           <LoginModal />
+          <EditModal />
           {children}
         </NextAuthSessionProvider>
       </body>

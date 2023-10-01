@@ -3,7 +3,7 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import Followbar from "@/components/sidebar/Followbar";
 import MainLayout from "@/components/layout/MainLayout";
 import Header from "@/components/header/Header";
-import { NewChirpForm } from "./components/form/NewChirpForm";
+import NewChirpForm from "./components/form/NewChirpForm";
 import Footer from "./components/footer/Footer";
 
 export default async function Home() {

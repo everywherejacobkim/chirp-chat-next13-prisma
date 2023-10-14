@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import serverAuth from "@/libs/serverAuth";
 import prisma from "@/libs/db/prismadb";
 
-export async function POST(req: Request, res: NextResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   try {
     if (req.method === "POST") {
       const { currentUser } = await serverAuth(req, res);

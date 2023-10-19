@@ -30,7 +30,7 @@ const NewChirpForm = ({
 
       await axios.post(url, { body });
 
-      toast.success("Tweet created");
+      toast.success("Chirp created");
       setBody("");
       mutatePosts();
       mutatePost();

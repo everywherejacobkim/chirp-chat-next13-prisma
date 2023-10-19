@@ -3,15 +3,15 @@ import { useRouter } from "next/navigation";
 import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import { formatDistanceToNowStrict } from "date-fns";
+import Avatar from "../avatar/Avatar";
+import { AiOutlineMessage, AiOutlineHeart } from "react-icons/ai";
 
 const PostItem = ({
   userId,
-  key,
   data,
 }: {
   userId: string;
-  key: string;
-  data: Record<string, unknown>;
+  data: Record<string, any>;
 }) => {
   const router = useRouter();
 
@@ -55,9 +55,46 @@ const PostItem = ({
   return (
     <div
       onClick={gotoPostDetail}
-      className="border-b-2 border-gray-200 p-4 cursor-pointer hover:bg-gray-100 transition"
+      className="border-b-2 border-gray-200 bg-zinc-100 cursor-pointer hover:bg-gray-200 transition"
     >
-      {data?.content}
+      <div className="flex items-center">
+        <Avatar userId={data.user.id} />
+        <div className="w-full p-2 flex flex-col gap-1">
+          <div className="flex items-start justify-between">
+            <span className="flex items-center gap-0.5">
+              <p className="text-xs text-gray-700" onClick={goToUserProfile}>
+                {data.user.name}
+              </p>
+              <p className="text-xs text-gray-500" onClick={goToUserProfile}>
+                @{data.user.username}
+              </p>
+            </span>
+            <p className="text-xs text-gray-500">{createdAt}</p>
+          </div>
+          <div className="flex gap-4 justify-between items-center -mt-0.5">
+            <p className="text-xs font-semibold text-gray-600">
+              {data.content}
+            </p>
+            <div className="flex gap-1">
+              <div className="flex gap-0.5 items-center cursor-pointer transition hover:text-primary-60 hover:font-semibold">
+                <AiOutlineMessage size={12} className="text-gray-600" />
+                <p className="text-xs text-gray-500">
+                  {data.comments?.length || 0}
+                </p>
+              </div>
+              <div
+                onClick={onLike}
+                className="flex gap-0.5 items-center cursor-pointer transition hover:text-primary-60 hover:font-semibold"
+              >
+                <AiOutlineHeart size={12} className="text-gray-600" />
+                <p className="text-xs text-gray-500">
+                  {data.comments?.length || 0}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -6,13 +6,13 @@ import PostItem from "./PostItem";
 const NewsFeed = ({ userId }: { userId: string }) => {
   const { data: posts = [] } = usePosts(userId);
 
-  console.log("This is fetched posts!!", posts);
+  console.log("This is fetched posts!!", posts && posts);
 
   return (
     <>
-      {posts.map((post: { id: string }) => {
-        <PostItem userId={userId} key={post.id} data={post} />;
-      })}
+      {/* {posts && posts.map((post: { id: string }) => (
+      <PostItem userId={userId} key={post.id} data={post} />
+    ))} */}
     </>
   );
 };

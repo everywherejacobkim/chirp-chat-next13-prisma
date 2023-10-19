@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import serverAuth from "@/libs/serverAuth";
 import prisma from "@/libs/db/prismadb";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+async function handler(req: NextRequest, res: NextResponse) {
   try {
     if (req.method === "POST") {
       const { currentUser } = await serverAuth(req, res);
@@ -58,3 +58,5 @@ export async function POST(req: NextRequest, res: NextResponse) {
     await prisma.$disconnect();
   }
 }
+
+export { handler as GET, handler as POST };

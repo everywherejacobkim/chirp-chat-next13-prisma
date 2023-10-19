@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import prisma from "@/libs/db/prismadb";
 
-export default async function GET(req: Request, res: NextResponse) {
+export async function GET(req: Request, res: NextResponse) {
   try {
-    const { postId } = req.query;
+    const postId = req.url.split("/posts/")[1];
 
     if (!postId || typeof postId !== "string") {
       throw new Error("Invalid ID");

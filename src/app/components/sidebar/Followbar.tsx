@@ -43,7 +43,7 @@ const Followbar = () => {
         ) : (
           <>
             <h1 className="text-white">Ready to Connect?</h1>
-            <h1 className="text-white mt-2">Log In to Follow Users</h1>
+            <h1 className="text-white mt-2">Login to Follow Users</h1>
           </>
         )}
       </div>

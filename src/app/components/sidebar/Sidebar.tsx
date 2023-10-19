@@ -64,15 +64,15 @@ const Sidebar = () => {
         )}
       </div>
       {!session && (
-      <div className="flex justify-center mt-10">
-        <button
-          onClick={openLoginModal}
-          className="bg-primary-30 text-primary-10 px-4 py-2 w-2/3 rounded-lg font-semibold"
-        >
-          Chirp
-        </button>
-      </div>
-)}
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={openLoginModal}
+            className="bg-primary-30 text-primary-10 px-4 py-2 w-2/3 rounded-lg font-semibold"
+          >
+            Login
+          </button>
+        </div>
+      )}
     </div>
   );
 };

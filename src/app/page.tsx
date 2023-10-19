@@ -8,8 +8,7 @@ import NewsFeed from "@/components/news/NewsFeed";
 import Footer from "@/components/footer/Footer";
 
 export default async function Home() {
-
-  let userId = "64f40ca2be39951fa06431ba"
+  let userId = "64f40ca2be39951fa06431ba";
 
   return (
     <PageLayout
@@ -19,8 +18,8 @@ export default async function Home() {
           TopComponent={<Header label="Home" isWelcomeShow={true} />}
           MainComponent={
             <>
-            <NewChirpForm />
-            <NewsFeed userId={userId} />
+              <NewChirpForm />
+              <NewsFeed userId={userId} />
             </>
           }
           BottomComponent={<Footer />}

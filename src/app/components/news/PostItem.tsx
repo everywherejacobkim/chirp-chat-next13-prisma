@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import useCurrentUser from "@/libs/hooks/useCurrentUser";
-import LoginModal from "@/components/modal/LoginModal";
 import useLoginModal from "@/libs/hooks/useLoginModal";
+import { formatDistanceToNowStrict } from "date-fns";
 
 const PostItem = ({
   userId,
@@ -45,12 +45,19 @@ const PostItem = ({
     [loginModal]
   );
 
+  const createdAt = useMemo(() => {
+    if (!data?.createdAt) {
+      return null;
+    }
+    return formatDistanceToNowStrict(new Date(data.createdAt as string));
+  }, [data?.createdAt]);
+
   return (
     <div
       onClick={gotoPostDetail}
       className="border-b-2 border-gray-200 p-4 cursor-pointer hover:bg-gray-100 transition"
     >
-      hello
+      {data?.content}
     </div>
   );
 };

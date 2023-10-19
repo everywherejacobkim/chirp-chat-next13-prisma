@@ -6,11 +6,12 @@ async function handler(req: NextRequest, res: NextResponse) {
   try {
     if (req.method === "POST") {
       const { currentUser } = await serverAuth(req, res);
-      const { body } = req.body;
+      const body = await req.json();
+      const content = body.body;
 
       const post = await prisma.post.create({
         data: {
-          body,
+          content,
           userId: currentUser?.id,
         },
       });
@@ -18,7 +19,7 @@ async function handler(req: NextRequest, res: NextResponse) {
       return NextResponse.json({ message: "Success", post }, { status: 200 });
     }
     if (req.method === "GET") {
-      const { userId } = req.query;
+      const userId = req.nextUrl.searchParams.get("userId");
 
       let posts;
 

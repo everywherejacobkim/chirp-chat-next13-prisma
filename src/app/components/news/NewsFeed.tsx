@@ -17,7 +17,7 @@ const NewsFeed = ({ userId }: { userId: string }) => {
               content: string;
             },
             index: number
-          ) => <PostItem userId={userId} key={index} data={post} />
+          ) => <PostItem userId={userId} key={index} data={post} />    
         )}
     </div>
   );

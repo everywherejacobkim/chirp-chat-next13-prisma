@@ -2,11 +2,15 @@ import Avatar from "@/components/avatar/Avatar";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import useEditModal from "@/libs/hooks/useEditModal";
+import useFollow from "@/libs/hooks/useFollow";
+
 
 const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
   const { data: session } = useSession();
 
   const editModal = useEditModal();
+
+  const { isFollowing, toggleFollow } = useFollow(fetchedUser.id);
 
   return (
     <div className="h-72 relative mb-3">
@@ -52,7 +56,10 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
               Edit
             </button>
           ) : (
-            <button className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105">
+            <button 
+            label={isFollowing ? "Unfollow" : "Follow"}
+            onClick={toggleFollow}
+            className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105">
               Follow
             </button>
           )}

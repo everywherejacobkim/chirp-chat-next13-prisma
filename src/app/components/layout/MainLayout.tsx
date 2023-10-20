@@ -10,10 +10,10 @@ const MainLayout = async ({
   BottomComponent: ReactNode;
 }) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-y-auto">
       <div>{TopComponent}</div>
-      <div>{MainComponent}</div>
-      <div className="absolute bottom-0 w-1/2">{BottomComponent}</div>
+      <div className="overflow-y-auto">{MainComponent}</div>
+      <div className="w-full my-4">{BottomComponent}</div>
     </div>
   );
 };

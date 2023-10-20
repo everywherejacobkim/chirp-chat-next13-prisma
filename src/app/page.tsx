@@ -8,7 +8,7 @@ import NewsFeed from "@/components/news/NewsFeed";
 import Footer from "@/components/footer/Footer";
 
 export default async function Home() {
-  let userId = "64f40ca2be39951fa06431ba";
+  let userId = "";
 
   return (
     <PageLayout

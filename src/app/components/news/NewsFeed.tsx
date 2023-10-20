@@ -8,7 +8,7 @@ const NewsFeed = ({ userId }: { userId: string }) => {
   const posts = data?.data?.posts;
 
   return (
-    <>
+    <div className="overflow-auto w-full h-screen">
       {posts &&
         posts.map(
           (
@@ -19,7 +19,7 @@ const NewsFeed = ({ userId }: { userId: string }) => {
             index: number
           ) => <PostItem userId={userId} key={index} data={post} />
         )}
-    </>
+    </div>
   );
 };
 

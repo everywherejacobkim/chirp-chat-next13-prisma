@@ -55,7 +55,7 @@ const PostItem = ({
   return (
     <div
       onClick={gotoPostDetail}
-      className="border-b-2 border-gray-200 bg-zinc-100 cursor-pointer hover:bg-gray-200 transition"
+      className="border-b-2 border-gray-200 bg-white cursor-pointer hover:bg-gray-100 transition"
     >
       <div className="flex items-center">
         <Avatar userId={data.user.id} />
@@ -71,7 +71,7 @@ const PostItem = ({
             </span>
             <p className="text-xs text-gray-500">{createdAt}</p>
           </div>
-          <div className="flex gap-4 justify-between items-center -mt-0.5">
+          <div className="flex gap-6 justify-between items-center -mt-0.5">
             <p className="text-xs font-semibold text-gray-600">
               {data.content}
             </p>

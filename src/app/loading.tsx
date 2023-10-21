@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <div className="flex justify-center mt-20">
       <FallingLines
-        color="#4fa94d"
+        color="#fff"
         width="100"
         visible={true}
       />

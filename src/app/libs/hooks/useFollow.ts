@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const useFollow = (userId: string) => {
+  console.log("하이하이하이userId", userId);
+
   const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(userId);
 
@@ -26,7 +28,7 @@ const useFollow = (userId: string) => {
       if (isFollowing) {
         request = () => axios.delete("/api/follow/", { data: { userId } });
       } else {
-        request = () => axios.post("/api/follow/", { userId });
+        request = () => axios.post(`/api/follow?userId=${userId}`);
       }
 
       await request();

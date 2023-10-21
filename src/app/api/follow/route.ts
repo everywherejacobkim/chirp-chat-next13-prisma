@@ -1,20 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/libs/db/prismadb";
 import serverAuth from "@/libs/serverAuth";
 
-export async function handler(req: Request, res: NextResponse) {
+export async function handler(req: NextRequest, res: NextResponse) {
   try {
-    const body = req.body as any as { userId: string };
-    const { userId } = body;
+    const userId = (req as any).params.userId;
     const { currentUser } = await serverAuth(req, res);
-
-    if (!userId || typeof userId !== "string") {
-      throw new Error("Invalid ID");
-    }
 
     const user = await prisma.user.findUnique({
       where: {
-        id: userId,
+        id: currentUser.id,
       },
     });
 

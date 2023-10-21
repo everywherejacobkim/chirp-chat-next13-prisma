@@ -57,10 +57,10 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
             </button>
           ) : (
             <button 
-            label={isFollowing ? "Unfollow" : "Follow"}
             onClick={toggleFollow}
-            className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105">
-              Follow
+            className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105"
+            >
+            {isFollowing ? "Unfollow" : "Follow"}
             </button>
           )}
         </div>

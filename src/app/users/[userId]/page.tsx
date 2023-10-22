@@ -4,6 +4,7 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import Followbar from "@/components/sidebar/Followbar";
 import Header from "@/components/header/Header";
 import UserProfile from "@/components/user/UserProfile";
+import NewsFeed from "@/components/news/NewsFeed";
 
 const page = ({params}: {
   params: {userId: string}
@@ -15,7 +16,7 @@ const page = ({params}: {
         <MainLayout
           TopComponent={<Header label="Back" isWelcomeShow={false} />}
           MainComponent={<UserProfile params={params} />}
-          BottomComponent="Footer"
+          BottomComponent={<NewsFeed userId={params.userId} />}
         />
       }
       RightComponent={<Followbar />}

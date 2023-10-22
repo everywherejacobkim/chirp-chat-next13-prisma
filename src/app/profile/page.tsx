@@ -1,15 +1,18 @@
-import PageLayout from "@/components/layout/PageLayout";
-import Sidebar from "@/components/sidebar/Sidebar";
-import Followbar from "@/components/sidebar/Followbar";
+"use client";
+import { useRouter } from "next/navigation";
+import useCurrentUser from "../libs/hooks/useCurrentUser";
 
-const page = () => {
-  return (
-    <PageLayout
-      LeftComponent={<Sidebar />}
-      MainComponent="hello this is Profile page"
-      RightComponent={<Followbar />}
-    />
-  );
+const Page = () => {
+  const router = useRouter();
+  const { data: currentUser } = useCurrentUser();
+
+  console.log("currentUser", currentUser);
+
+  const userId = currentUser?.data.id;
+
+  router.push(`/users/${userId}`);
+
+  return null;
 };
 
-export default page;
+export default Page;

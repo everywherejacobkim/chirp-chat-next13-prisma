@@ -7,6 +7,8 @@ export async function handler(req: NextRequest, res: NextResponse) {
     const userId = (req as any).params.userId;
     const { currentUser } = await serverAuth(req, res);
 
+    console.log("이것을 확인하시오!!!", userId);
+
     const user = await prisma.user.findUnique({
       where: {
         id: currentUser.id,
@@ -39,7 +41,7 @@ export async function handler(req: NextRequest, res: NextResponse) {
     });
 
     return NextResponse.json(
-      { message: "Success", updatedUser },
+      { message: "Success", currentUser },
       { status: 200 }
     );
   } catch (error) {

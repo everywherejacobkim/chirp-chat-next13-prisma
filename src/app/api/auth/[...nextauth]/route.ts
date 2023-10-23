@@ -60,13 +60,14 @@ export const authOptions: NextAuthOptions = {
       //update user in the database
       const newUser = await prisma.user.update({
         where: {
-          id: token.id,
+          id: token.id as string,
         },
         data: {
           name: token.name,
         },
       });
       console.log("newUser", newUser);
+
       return token;
     },
     async session({ session, token, user }) {

@@ -48,7 +48,7 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
           </div>
         </div>
         <div className="px-8 -mt-4">
-          {fetchedUser?.id === session?.user?.id ? (
+          {fetchedUser?.id === session?.id ? (
             <button
               onClick={editModal.onOpen}
               className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105"

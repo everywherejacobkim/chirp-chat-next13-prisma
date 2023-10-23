@@ -8,8 +8,6 @@ import useCurrentUser from "@/libs/hooks/useCurrentUser";
 const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
   const {data: currentUser} = useCurrentUser();
 
-  console.log("fff",currentUser)
-
   const editModal = useEditModal();
 
   const { isFollowing, toggleFollow } = useFollow(fetchedUser.id);

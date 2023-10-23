@@ -6,8 +6,6 @@ const Page = () => {
   const router = useRouter();
   const { data: currentUser } = useCurrentUser();
 
-  console.log("currentUser", currentUser);
-
   const userId = currentUser?.data.id;
 
   router.push(`/users/${userId}`);

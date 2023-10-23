@@ -1,12 +1,14 @@
 import Avatar from "@/components/avatar/Avatar";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
 import useEditModal from "@/libs/hooks/useEditModal";
 import useFollow from "@/libs/hooks/useFollow";
+import useCurrentUser from "@/libs/hooks/useCurrentUser";
 
 
 const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
-  const { data: session } = useSession();
+  const {data: currentUser} = useCurrentUser();
+
+  console.log("fff",currentUser)
 
   const editModal = useEditModal();
 
@@ -48,7 +50,7 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
           </div>
         </div>
         <div className="px-8 -mt-4">
-          {fetchedUser?.id === session?.id ? (
+          {fetchedUser?.id === currentUser?.data?.id ? (
             <button
               onClick={editModal.onOpen}
               className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105"

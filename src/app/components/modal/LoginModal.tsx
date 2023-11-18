@@ -42,13 +42,13 @@ const LoginModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Input
-        placeholder="Email"
+        placeholder="For Testing: user@test.com"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         disabled={isLoading}
       />
       <Input
-        placeholder="Password"
+        placeholder="For Testing: chirpchat"
         type="password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}

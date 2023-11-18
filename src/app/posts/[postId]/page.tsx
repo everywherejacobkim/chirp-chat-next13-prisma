@@ -17,7 +17,8 @@ const page = ({params}: {
       MainComponent={
         <MainLayout
           TopComponent={<Header label="Back" isWelcomeShow={false} />}
-          MainComponent={<PostItem />}
+          // MainComponent={<PostItem />}
+          MainComponent="Hello"
           BottomComponent={<Footer />}
         />
       }

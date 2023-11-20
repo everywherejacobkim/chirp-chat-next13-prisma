@@ -5,6 +5,7 @@ import useLoginModal from "@/libs/hooks/useLoginModal";
 import { BiHomeSmile } from "react-icons/bi";
 import { RiNotification3Line, RiLogoutBoxFill } from "react-icons/ri";
 import { FiUser } from "react-icons/fi";
+import { IoChatbubblesOutline } from "react-icons/io5";
 import SidebarItem from "./SidebarItem";
 import { useSession, signOut } from "next-auth/react";
 import logo from "public/images/icons/chirp_logo2.png";
@@ -27,6 +28,12 @@ const Sidebar = () => {
       name: "Notification",
       icon: RiNotification3Line,
       link: "/notification",
+      auth: true,
+    },
+    {
+      name: "Chat",
+      icon: IoChatbubblesOutline,
+      link: "/chat",
       auth: true,
     },
     {

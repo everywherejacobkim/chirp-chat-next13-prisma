@@ -17,10 +17,10 @@ export default async function Home() {
         <MainLayout
           TopComponent={<Header label="Home" isWelcomeShow={true} />}
           MainComponent={
-            <>
+            <div className="flex flex-col gap-5">
               <NewChirpForm />
               <NewsFeed userId={userId} />
-            </>
+            </div>
           }
           BottomComponent={<Footer />}
         />

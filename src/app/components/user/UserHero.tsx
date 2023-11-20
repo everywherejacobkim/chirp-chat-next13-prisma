@@ -47,7 +47,7 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
             </div>
           </div>
         </div>
-        <div className="px-8 -mt-4">
+        <div className="flex gap-2 px-2">
           {fetchedUser?.id === currentUser?.data?.id ? (
             <button
               onClick={editModal.onOpen}
@@ -58,11 +58,16 @@ const UserHero = ({ fetchedUser }: { fetchedUser: any }) => {
           ) : (
             <button 
             onClick={toggleFollow}
-            className="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-8 rounded-xl transition duration-300 ease-in-out transform hover:scale-105"
+            className="bg-lime-500 hover:bg-lime-600 text-white border-2 hover:border font-bold py-2 px-6 rounded-xl transition duration-300 ease-in-out transform hover:scale-105"
             >
             {isFollowing ? "Unfollow" : "Follow"}
             </button>
           )}
+          <button
+            className="bg-[#FBF462] hover:bg-yellow-400 text-lime-500 hover:text-white border-2 hover:border font-bold py-2 px-4 rounded-xl transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            Chat
+          </button>
         </div>
       </div>
     </div>

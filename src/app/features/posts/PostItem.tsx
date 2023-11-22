@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import { formatDistanceToNowStrict } from "date-fns";
-import Avatar from "../avatar/Avatar";
+import Avatar from "../../components/avatar/Avatar";
 import { AiOutlineMessage, AiOutlineHeart } from "react-icons/ai";
 
 const PostItem = ({

@@ -4,7 +4,7 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import Followbar from "@/components/sidebar/Followbar";
 import Header from "@/components/header/Header";
 import UserProfile from "@/components/user/UserProfile";
-import NewsFeed from "@/components/news/NewsFeed";
+import NewsFeed from "@/features/posts/NewsFeed";
 
 const page = ({params}: {
   params: {userId: string}

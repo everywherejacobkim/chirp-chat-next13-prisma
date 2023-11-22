@@ -4,7 +4,7 @@ import Followbar from "@/components/sidebar/Followbar";
 import MainLayout from "@/components/layout/MainLayout";
 import Header from "@/components/header/Header";
 import NewChirpForm from "@/components/form/NewChirpForm";
-import NewsFeed from "@/components/news/NewsFeed";
+import NewsFeed from "@/features/posts/NewsFeed";
 import Footer from "@/components/footer/Footer";
 
 export default async function Home() {

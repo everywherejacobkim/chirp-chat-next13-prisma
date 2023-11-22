@@ -53,7 +53,7 @@ const Header = ({
           <Link href="/">
            <div className="flex gap-1 items-end">
             <PiKeyReturnFill size={32} className="text-primary-60" />
-            <h3 className="text-primary-text text-lg font-semibold">Back</h3>
+              <h3 className="text-primary-text text-lg font-semibold">{label}</h3>
            </div>
           </Link>
       )}

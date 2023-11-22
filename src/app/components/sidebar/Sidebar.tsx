@@ -1,6 +1,7 @@
 "use client";
 import React, { useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import { BiHomeSmile } from "react-icons/bi";
 import { RiNotification3Line, RiLogoutBoxFill } from "react-icons/ri";
@@ -44,14 +45,14 @@ const Sidebar = () => {
     },
   ];
 
-  console.log(status);
-
   return (
     <div className="w-full bg-white">
-      <div className="flex flex-col justify-center items-center">
-        <Image src={logo} width={100} height={100} alt="logo" />
-        <h1 className="font-semibold -mt-5 mb-5">CHIRPCHAT</h1>
-      </div>
+      <Link href="/">
+        <div className="flex flex-col justify-center items-center">
+          <Image src={logo} width={100} height={100} alt="logo" />
+          <h1 className="font-semibold -mt-5 mb-5">CHIRPCHAT</h1>
+        </div>
+      </Link>
       <div className="pl-10">
         {items.map((item, index) => (
           <SidebarItem

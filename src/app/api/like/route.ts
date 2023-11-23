@@ -3,8 +3,9 @@ import prisma from "@/libs/db/prismadb";
 import serverAuth from "@/libs/serverAuth";
 
 async function handler(req: NextRequest, res: NextResponse) {
-  try {
-      const { postId } = req.body;
+  try {   
+      const requestBody = await req.json();
+      const postId = requestBody.postId;
 
       const { currentUser } = await serverAuth(req, res);
     

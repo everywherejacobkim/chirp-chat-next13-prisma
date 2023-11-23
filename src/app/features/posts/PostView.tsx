@@ -13,7 +13,7 @@ const PostView = ({query}: {
 
     if(isLoading || !fetchedPost) {
         return (
-            <div className="flex justify-center items-center h-full">
+            <div className="flex justify-center items-center h-full p-5">
                 <ClipLoader  />
             </div>
         )
@@ -25,7 +25,7 @@ const PostView = ({query}: {
   return (
     <div>
         <PostItem data={postData} userId={user.id}/>
-          <NewChirpForm postId={postId} isComment={true} />
+        <NewChirpForm postId={postId} isComment={true} />
     </div>
   )
 }

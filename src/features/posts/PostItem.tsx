@@ -1,11 +1,12 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import useLike from "@/libs/hooks/useLike";
 import { formatDistanceToNowStrict } from "date-fns";
 import Avatar from "@/components/avatar/Avatar";
-import { AiOutlineMessage, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { AiOutlineMessage, AiOutlineHeart } from "react-icons/ai";
+import { FaHeart } from "react-icons/fa";
 
 const PostItem = ({
   userId,
@@ -19,6 +20,7 @@ const PostItem = ({
 
   const { data: currentUser } = useCurrentUser();
   const { hasLiked, toggleLike } = useLike({ postId: data.id, userId});
+  const [clicked, setClicked] = useState(false);
 
   const goToUserProfile = useCallback(
     (event: any) => {
@@ -45,13 +47,13 @@ const PostItem = ({
       if (!currentUser) {
        return loginModal.onOpen();
       }
-
       await toggleLike();
+      await setClicked(true);
     },
     [loginModal, currentUser, toggleLike, hasLiked]
   );
 
-  const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
+  const LikeIcon = hasLiked ? FaHeart : AiOutlineHeart;
 
   const createdAt = useMemo(() => {
     if (!data?.createdAt) {
@@ -94,9 +96,9 @@ const PostItem = ({
                 onClick={onLike}
                 className="flex gap-0.5 items-center cursor-pointer transition hover:text-primary-60 hover:font-semibold"
               >
-                <LikeIcon color={hasLiked ? 'red' : ''} size={12} className="text-gray-600" />
+                { clicked ? <FaHeart color="#f29f07" size={12} /> : <AiOutlineHeart size={12} className="text-gray-500"/> }
                 <p className="text-xs text-gray-500">
-                  {data.comments?.length || 0}
+                {data.likedIds.length}
                 </p>
               </div>
             </div>

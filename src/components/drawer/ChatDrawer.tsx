@@ -1,5 +1,6 @@
 'use client';
 import * as React from 'react';
+import useUsers from '@/libs/hooks/useUsers';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -19,16 +20,17 @@ import { MdControlPoint } from "react-icons/md";
 const drawerWidth = 240;
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
   window?: () => Window;
 }
 
 export default function ResponsiveDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const { data: users} = useUsers();
+  const userNameList = users?.map(user => user.name)
+
+  console.log("이서이다", users)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -38,7 +40,7 @@ export default function ResponsiveDrawer(props: Props) {
     <div className='h-full'>
       <Toolbar />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts', 'Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {userNameList?.map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>

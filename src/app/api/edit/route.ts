@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import serverAuth from "@/libs/serverAuth";
 import prisma from "@/libs/db/prismadb";
-import { useSession } from "next-auth/react";
 
 export async function PATCH(req: Request, res: NextResponse) {
   try {

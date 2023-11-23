@@ -1,11 +1,11 @@
 import "./globals.css";
-import NextAuthSessionProvider from "./libs/providers/sessionProvider";
+import NextAuthSessionProvider from "@/libs/providers/sessionProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import LoginModal from "./components/modal/LoginModal";
-import EditModal from "./components/modal/EditModal";
-import RegisterModal from "./components/modal/RegisterModal";
+import LoginModal from "@/components/modal/LoginModal";
+import EditModal from "@/components/modal/EditModal";
+import RegisterModal from "@/components/modal/RegisterModal";
 
 const inter = Inter({ subsets: ["latin"] });
 

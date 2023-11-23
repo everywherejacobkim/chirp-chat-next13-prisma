@@ -4,7 +4,7 @@ import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import useLoginModal from "@/libs/hooks/useLoginModal";
 import useLike from "@/libs/hooks/useLike";
 import { formatDistanceToNowStrict } from "date-fns";
-import Avatar from "../../components/avatar/Avatar";
+import Avatar from "@/components/avatar/Avatar";
 import { AiOutlineMessage, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 const PostItem = ({

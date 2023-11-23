@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import useCurrentUser from "../libs/hooks/useCurrentUser";
+import useCurrentUser from "@/libs/hooks/useCurrentUser";
 
 const Page = () => {
   const router = useRouter();

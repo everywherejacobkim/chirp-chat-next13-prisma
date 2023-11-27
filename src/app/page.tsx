@@ -29,5 +29,3 @@ export default async function Home() {
     />
   );
 }
-
-// People you may know

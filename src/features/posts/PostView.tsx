@@ -2,7 +2,8 @@ import React from 'react';
 import usePost from '@/libs/hooks/usePost';
 import { ClipLoader } from 'react-spinners';
 import PostItem from './PostItem';
-import NewChirpForm from '@/components/form/NewChirpForm';
+import CommentForm from '@/components/form/CommentForm';
+import CommentFeed from '@/features/posts/CommentFeed';
 
 const PostView = ({query}: {
     query: any
@@ -25,7 +26,8 @@ const PostView = ({query}: {
   return (
     <div>
         <PostItem data={postData} userId={user.id}/>
-        <NewChirpForm postId={postId} isComment={true} />
+        <CommentForm postId={postId} />
+        <CommentFeed comments={fetchedPost?.comments}/>
     </div>
   )
 }

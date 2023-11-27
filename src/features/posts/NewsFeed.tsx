@@ -8,7 +8,7 @@ const NewsFeed = ({ userId }: { userId: string }) => {
   const posts = data?.data?.posts;
 
   return (
-    <div className="overflow-auto w-full h-screen">
+    <div className="overflow-auto w-full h-screen px-2">
       {posts &&
         posts.map(
           (

@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useCallback } from "react";
 import Avatar from "../avatar/Avatar";
 import useCurrentUser from "@/libs/hooks/useCurrentUser";
@@ -8,7 +7,7 @@ import { toast } from "react-hot-toast";
 import usePosts from "@/libs/hooks/usePosts";
 import usePost from "@/libs/hooks/usePost";
 
-const NewChirpForm = ({
+const CommentForm = ({
   postId,
 }: {
   postId?: string;
@@ -23,9 +22,7 @@ const NewChirpForm = ({
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-
-      const url = "/api/posts";
-
+      const url = `/api/comments?postId=${postId}`;
       await axios.post(url, { body });
 
       toast.success("Chirp created");
@@ -41,42 +38,35 @@ const NewChirpForm = ({
 
   return (
     <div>
-      <form className="flex flex-col gap-2 border-b px-4 py-2">
-        <div className="flex gap-4">
-          <Avatar userId={currentUser?.data?.id} isLarge />
-          <textarea
-            className="flex-grow resize-none overflow-hidden px-2 pt-10 outline-none rounded"
-            placeholder="Share your chirpy moments!"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            onClick={() => {
-              if (!currentUser?.data?.id) {
-                toast.success("Login to post a chirp!");
-              }
-            }}
-          />
-        </div>
-        <div className="flex justify-end">
-          {currentUser?.data?.id ? (
+      <form className="flex flex-col gap-2 border-b py-2">
+        <div className="flex gap-2">
+          <Avatar userId={currentUser?.data?.id} />
+          <div className="w-full flex">
+            <textarea
+              className="flex-grow resize-none overflow-hidden outline-none rounded text-xs pt-4"
+              placeholder="Add your chirpy comments!"
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              onClick={() => {
+                if (!currentUser?.data?.id) {
+                  toast.success("Login to post a chirp!");
+                }
+              }}
+            />
+          <div className="flex">
             <button
-              className="text-white font-bold px-6 py-2 bg-primary-30 rounded-lg"
+              className="font-bold text-sm px-3 py-2 bg-white text-primary-30 border-2 border-primary-30 rounded-lg"
               disabled={isLoading || !body}
               onClick={onSubmit}
             >
               Chirp
             </button>
-          ) : (
-            <Button
-              label="Chirp"
-              disabled={!currentUser?.data?.id}
-              bgColor="bg-primary-30"
-              textColor="text-white"
-            />
-          )}
+          </div>
+          </div>
         </div>
       </form>
     </div>
   );
 };
 
-export default NewChirpForm;
+export default CommentForm;

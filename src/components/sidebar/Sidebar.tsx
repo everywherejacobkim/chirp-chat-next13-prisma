@@ -9,10 +9,13 @@ import { FiUser } from "react-icons/fi";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import SidebarItem from "./SidebarItem";
 import { useSession, signOut } from "next-auth/react";
+import useCurrentUser from "@/libs/hooks/useCurrentUser";
 import logo from "public/images/icons/chirp_logo2.png";
 
 const Sidebar = () => {
   const { data: session, status } = useSession();
+  const { data: currentUser } = useCurrentUser();
+  
   const loginModal = useLoginModal();
 
   const openLoginModal = useCallback(() => {
@@ -30,6 +33,7 @@ const Sidebar = () => {
       icon: RiNotification3Line,
       link: "/notification",
       auth: true,
+      alert: currentUser?.hasNotification,
     },
     {
       name: "Chat",
@@ -61,6 +65,7 @@ const Sidebar = () => {
             icon={item.icon}
             link={item.link}
             auth={item.auth}
+            alert={item.alert}
           />
         ))}
         {session && status == "authenticated" && (

@@ -8,7 +8,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import PostView from "@/features/posts/PostView";
 
-const page = () => {
+const Page = () => {
   const params = useParams();
   const query = params.postId
 
@@ -27,4 +27,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

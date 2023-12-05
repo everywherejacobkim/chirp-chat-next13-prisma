@@ -33,3 +33,7 @@ ChripChat is built using the following technologies:
 - MongoDB: A versatile NoSQL database that scales effortlessly, supporting ChirpChat's dynamic interactions.
   
 - Tailwind CSS: A utility-first CSS framework that facilitates responsive and aesthetically pleasing design, enhancing the user interface.
+
+
+<img width="1432" alt="screenshot 2023-12-04 오후 11 25 23" src="https://github.com/everywherejacobkim/chirp-chat-next13-prisma/assets/87889917/5095c301-f5d4-4e0c-8cfe-6a0379f793b2">
+<img width="1431" alt="screenshot 2023-12-04 오후 11 26 07" src="https://github.com/everywherejacobkim/chirp-chat-next13-prisma/assets/87889917/cd15418c-1084-42c8-965a-25e9f47cce14">

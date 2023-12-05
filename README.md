@@ -35,5 +35,8 @@ ChripChat is built using the following technologies:
 - Tailwind CSS: A utility-first CSS framework that facilitates responsive and aesthetically pleasing design, enhancing the user interface.
 
 
-<img width="1432" alt="screenshot 2023-12-04 오후 11 25 23" src="https://github.com/everywherejacobkim/chirp-chat-next13-prisma/assets/87889917/5095c301-f5d4-4e0c-8cfe-6a0379f793b2">
-<img width="1431" alt="screenshot 2023-12-04 오후 11 26 07" src="https://github.com/everywherejacobkim/chirp-chat-next13-prisma/assets/87889917/cd15418c-1084-42c8-965a-25e9f47cce14">
+## Screenshots
+
+![chirpchat_1](https://github.com/everywherejacobkim/chirp-chat-next13-prisma/assets/87889917/2060f2b6-43d0-4146-a0ec-b46dd56d5106)
+![chirpchat-2](https://github.com/everywherejacobkim/chirp-chat-next13-prisma/assets/87889917/faecf2ae-bd00-4b7a-816c-af93b4400393)
+
